@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "643072121564",
+    "project_id": "trabajogrado-77f48",
+    "storage_bucket": "trabajogrado-77f48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643072121564:android:6eee8d290612329bc6f219",
+        "android_client_info": {
+          "package_name": "com.trbj.sty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643072121564-3q2sbmfgqhadl05d5dn03epv9ocodr94.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.trbj.sty",
+            "certificate_hash": "0e51965b9fcbf90d613ea3f4d6481cf82ea2a39a"
+          }
+        },
+        {
+          "client_id": "643072121564-sfsb3v3e1r8mm7425r6621d293cdrecu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtwuKmKWH-Kz2ojotItv3JUbRWTQVrZX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643072121564-sfsb3v3e1r8mm7425r6621d293cdrecu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_Course">
+
+    <fragment
+        android:id="@+id/nav_Course"
+        android:name="com.trbj.sty.ui.course.CourseFragment"
+        android:label="@string/menu_course"
+        tools:layout="@layout/fragment_course" />
+
+    <fragment
+        android:id="@+id/nav_annotations"
+        android:name="com.trbj.sty.ui.annotations.AnnotationsFragment"
+        android:label="@string/menu_annotations"
+        tools:layout="@layout/fragment_annotations" />
+
+    <fragment
+        android:id="@+id/nav_contributions"
+        android:name="com.trbj.sty.ui.contributions.ContributionsFragment"
+        android:label="@string/menu_contributions"
+        tools:layout="@layout/fragment_contributions" />
+</navigation>
