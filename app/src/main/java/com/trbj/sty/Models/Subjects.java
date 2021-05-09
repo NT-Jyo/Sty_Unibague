@@ -2,18 +2,18 @@ package com.trbj.sty.Models;
 
 public class Subjects {
     private String nameSubject;
-    private double comments;
-    private double likes;
-    private double notlikes;
-    private double students;
+    private int comments;
+    private int likes;
+    private int notlikes;
+    private int students;
     private String photoURL;
-    private double themes;
+    private int themes;
 
     public Subjects(){
 
     }
 
-    public Subjects(String nameSubject, double comments, double likes, double notlikes, double students, String photoURL, double themes) {
+    public Subjects(String nameSubject, int comments, int likes, int notlikes, int students, String photoURL, int themes) {
         this.nameSubject = nameSubject;
         this.comments = comments;
         this.likes = likes;
@@ -31,35 +31,35 @@ public class Subjects {
         this.nameSubject = nameSubject;
     }
 
-    public double getComments() {
+    public int getComments() {
         return comments;
     }
 
-    public void setComments(double comments) {
+    public void setComments(int comments) {
         this.comments = comments;
     }
 
-    public double getLikes() {
+    public int getLikes() {
         return likes;
     }
 
-    public void setLikes(double likes) {
+    public void setLikes(int likes) {
         this.likes = likes;
     }
 
-    public double getNotlikes() {
+    public int getNotlikes() {
         return notlikes;
     }
 
-    public void setNotlikes(double notlikes) {
+    public void setNotlikes(int notlikes) {
         this.notlikes = notlikes;
     }
 
-    public double getStudents() {
+    public int getStudents() {
         return students;
     }
 
-    public void setStudents(double students) {
+    public void setStudents(int students) {
         this.students = students;
     }
 
@@ -71,11 +71,11 @@ public class Subjects {
         this.photoURL = photoURL;
     }
 
-    public double getThemes() {
+    public int getThemes() {
         return themes;
     }
 
-    public void setThemes(double themes) {
+    public void setThemes(int themes) {
         this.themes = themes;
     }
 }

@@ -11,7 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sty">
-        <activity android:name=".Activitys.ConfirmRegistrationActivity"></activity>
+        <activity android:name=".Activitys.AnnotationsActivity"></activity>
+        <activity android:name=".Activitys.AnnotationsNoteActivity" />
+        <activity
+            android:name=".Activitys.NoContentActivity"
+            android:label="@string/label_NoContent" />
+        <activity android:name=".Activitys.CourseQuestionActivity" />
+        <activity android:name=".Activitys.QuestionSolveActivity" />
+        <activity
+            android:name=".Activitys.DataCourseActivity"
+            android:label="@string/label_DataCourse" />
+        <activity
+            android:name=".Activitys.CoursesActivity"
+            android:label="@string/label_Courses" />
+        <activity
+            android:name=".Activitys.ConfirmRegistrationActivity"
+            android:label="@string/label_ConfirmRegistration" />
         <activity android:name=".Activitys.QuestionActivity" />
         <activity
             android:name=".Activitys.SeccionFiveActivity"

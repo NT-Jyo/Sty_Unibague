@@ -25,6 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.trbj.sty.Models.Topics.Introduction;
+import com.trbj.sty.Models.Topics.Seccion;
 import com.trbj.sty.R;
 import com.trbj.sty.Shareds.SharedPreferenceSubjectsUser;
 
@@ -112,11 +113,8 @@ public class IntroductionActivity extends AppCompatActivity implements View.OnCl
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-
                                 Log.d("TAG", document.getId() + " => " + document.getData());
-
                                 Introduction introduction= document.toObject(Introduction.class);
-
                                 Glide.with(IntroductionActivity.this).load(introduction.getPicture()).into(image_view_topic_introductionB);
                                 text_view_title_topic_introductionB.setText(loadNameTopic());
                                 text_view_description_topic_introductionB.setText(introduction.getDescription());
@@ -128,6 +126,37 @@ public class IntroductionActivity extends AppCompatActivity implements View.OnCl
                 });
     }
 
+
+    private void loadDataState(){
+        firebaseFirestoreB.collection("Aula").document(loadIdTeacher()).collection("Subjects").document(loadIdSubjects()).collection("topics").document(loadIdTopic()).collection("Seccion1")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("TAG", document.getId() + " => " + document.getData());
+                                Seccion seccion= document.toObject(Seccion.class);
+                                if(seccion.isContent()==false){
+                                    loadDataNoContent();
+                                }else{
+                                    loadDataOneSeccion();
+                                }
+
+                            }
+                        } else {
+                            Log.d("TAG", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
+    private void loadDataNoContent(){
+        Intent intent = new Intent(IntroductionActivity.this, NoContentActivity.class);
+        startActivity(intent);
+    }
+
+
     private void loadDataOneSeccion(){
         Intent intent = new Intent(IntroductionActivity.this, SeccionOneActivity.class);
         startActivity(intent);
@@ -138,7 +167,7 @@ public class IntroductionActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.button_material_continue_introduction:
-                loadDataOneSeccion();
+                loadDataState();
                 break;
         }
     }

@@ -2,31 +2,24 @@ package com.trbj.sty.Models.Topics;
 
 public class Seccion {
 
-    private String contents;
     private String description;
     private String link;
     private String picture;
     private String title;
     private String video;
+    private boolean content;
 
     public Seccion(){
 
     }
-    public Seccion(String contents, String description, String link, String picture, String title, String video) {
-        this.contents = contents;
+
+    public Seccion(String description, String link, String picture, String title, String video, boolean content) {
         this.description = description;
         this.link = link;
         this.picture = picture;
         this.title = title;
         this.video = video;
-    }
-
-    public String getContents() {
-        return contents;
-    }
-
-    public void setContents(String contents) {
-        this.contents = contents;
+        this.content = content;
     }
 
     public String getDescription() {
@@ -67,5 +60,13 @@ public class Seccion {
 
     public void setVideo(String video) {
         this.video = video;
+    }
+
+    public boolean isContent() {
+        return content;
+    }
+
+    public void setContent(boolean content) {
+        this.content = content;
     }
 }

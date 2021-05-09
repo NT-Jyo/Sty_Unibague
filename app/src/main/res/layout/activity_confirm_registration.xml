@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     tools:context=".Activitys.ConfirmRegistrationActivity">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -23,5 +22,29 @@
         app:lottie_fileName="at_hanatachi_sticker.json"
         app:lottie_imageAssetsFolder="assets"
         />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_view_confirm_registration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Veamos avdsds"
+        android:padding="10dp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottie_animation_register">
+    </com.google.android.material.textview.MaterialTextView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/material_button_confirm_registration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_confirm_registration">
+
+    </com.google.android.material.button.MaterialButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

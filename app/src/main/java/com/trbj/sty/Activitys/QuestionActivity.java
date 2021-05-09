@@ -9,15 +9,20 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.trbj.sty.Models.SolveQuestion;
 import com.trbj.sty.R;
 import com.trbj.sty.Shareds.SharedPreferenceQuestion;
@@ -121,11 +126,10 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         return  idQuestion;
     }
 
-    private String date() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.getDefault());
+    private Long date() {
         Date date = new Date();
-        String dateB = dateFormat.format(date);
-        return dateB;
+        Long Time=date.getTime();
+        return Time;
     }
 
     private void loadProgress() {
@@ -144,7 +148,49 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
                 Log.w("TAG", "Error writing document", e);
             }
         });
+    }
 
+    private void progressCount(){
+        firebaseFirestoreB.collection("Aula").document(loadIdTeacher()).collection("Subjects").document(loadIdSubjects()).collection("progress").document(loadEmailUser())
+            .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        int count =document.getData().size();
+                        Map<String, Object> progressMap = new HashMap<>();
+                        progressMap.put("progress", count-5);
+                        firebaseFirestoreB.collection("Aula").document(loadIdTeacher()).collection("Subjects").document(loadIdSubjects()).collection("progress").document(loadEmailUser()).update(progressMap);
+                    } else {
+                        Log.d("TAG", "No such document");
+                    }
+                } else {
+                    Log.d("TAG", "get failed with ", task.getException());
+                }
+            }
+        });
+    }
+
+
+    private void getCommentsCount(){
+        firebaseFirestoreB.collection("Aula").document(loadIdTeacher()).collection("Subjects").document(loadIdSubjects()).collection("comments")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            uploadCommentsCount(task.getResult().size());
+                        } else {
+                            Log.d("TAG", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
+    private void uploadCommentsCount(int students){
+        DocumentReference documentReference= firebaseFirestoreB.collection("Aula").document(loadIdTeacher()).collection("Subjects").document(loadIdSubjects());
+        documentReference.update("comments",students);
     }
 
     private void registerQuestion() {
@@ -156,6 +202,8 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onSuccess(Void aVoid) {
                         loadProgress();
+                        getCommentsCount();
+                        progressCount();
                         Toast.makeText(QuestionActivity.this, "Respuesta enviada", Toast.LENGTH_SHORT).show();
                         onBackPressed();
                     }

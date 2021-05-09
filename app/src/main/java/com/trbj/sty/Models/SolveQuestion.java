@@ -5,14 +5,14 @@ public class SolveQuestion {
     private String question;
     private String solveQuestion;
     private String email;
-    private String date;
+    private Long date;
     private String name;
 
     public SolveQuestion(){
 
     }
 
-    public SolveQuestion(double qualification, String question, String solveQuestion, String email, String date, String name) {
+    public SolveQuestion(double qualification, String question, String solveQuestion, String email, Long date, String name) {
         this.qualification = qualification;
         this.question = question;
         this.solveQuestion = solveQuestion;
@@ -53,11 +53,11 @@ public class SolveQuestion {
         this.email = email;
     }
 
-    public String getDate() {
+    public Long getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Long date) {
         this.date = date;
     }
 

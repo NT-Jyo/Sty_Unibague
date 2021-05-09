@@ -9,7 +9,10 @@
     <string name="label_teacher">Docentes</string>
     <string name="label_topic">Temas</string>
     <string name="label_subjects">Asignaturas</string>
-
+    <string name="label_ConfirmRegistration">Seguro?</string>
+    <string name="label_Courses">(>‘o’)></string>
+    <string name="label_DataCourse">(っ◕‿◕)っ</string>
+    <string name="label_NoContent">щ（ﾟДﾟщ）</string>
 
     <string name="action_settings">Configuraciones</string>
     <string name="action_exit">Salir</string>

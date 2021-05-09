@@ -1,6 +1,7 @@
 package com.trbj.sty.Activitys;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
@@ -43,6 +44,11 @@ public class SeccionTwoActivity extends AppCompatActivity implements View.OnClic
     TextView text_view_description_seccion_twoB;
 
     MaterialButton material_button_seccion_two_continueB;
+    MaterialButton material_button_seccion_two_see_moreB;
+    MaterialButton material_button_seccion_two_linkB;
+
+    private String seeMore;
+    private String link;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,10 +67,14 @@ public class SeccionTwoActivity extends AppCompatActivity implements View.OnClic
         text_view_description_seccion_twoB=findViewById(R.id.text_view_description_seccion_two);
 
         material_button_seccion_two_continueB=findViewById(R.id.material_button_seccion_two_continue);
+        material_button_seccion_two_see_moreB=findViewById(R.id.material_button_seccion_two_see_more);
+        material_button_seccion_two_linkB=findViewById(R.id.material_button_seccion_two_link);
 
         sharedPreferenceSubjectsUser = new SharedPreferenceSubjectsUser(this);
 
         material_button_seccion_two_continueB.setOnClickListener(this);
+        material_button_seccion_two_see_moreB.setOnClickListener(this);
+        material_button_seccion_two_linkB.setOnClickListener(this);
 
         setTitle(sharedPreferenceSubjectsUser.getNameSubject());
         loadData();
@@ -130,6 +140,31 @@ public class SeccionTwoActivity extends AppCompatActivity implements View.OnClic
                                 Glide.with(SeccionTwoActivity.this).load(seccion.getPicture()).into(image_view_seccion_twoB);
                                 text_view_title_seccion_twoB.setText(seccion.getTitle());
                                 text_view_description_seccion_twoB.setText(seccion.getDescription());
+                                seeMore=seccion.getVideo();
+                                link=seccion.getLink();
+                            }
+                        } else {
+                            Log.d("TAG", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
+    private void loadDataState(){
+        firebaseFirestoreB.collection("Aula").document(loadIdTeacher()).collection("Subjects").document(loadIdSubjects()).collection("topics").document(loadIdTopic()).collection("Seccion3")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("TAG", document.getId() + " => " + document.getData());
+                                Seccion seccion= document.toObject(Seccion.class);
+                                if(seccion.isContent()==false){
+                                    loadDataNoContent();
+                                }else{
+                                    loadDataThreeSeccion();
+                                }
                             }
                         } else {
                             Log.d("TAG", "Error getting documents: ", task.getException());
@@ -144,11 +179,34 @@ public class SeccionTwoActivity extends AppCompatActivity implements View.OnClic
         startActivity(intent);
     }
 
+    private void loadDataNoContent(){
+        Intent intent = new Intent( SeccionTwoActivity.this, NoContentActivity.class);
+        startActivity(intent);
+    }
+
+    private void loadSeeMore(){
+        Uri uri= Uri.parse(seeMore);
+        Intent intent = new Intent( Intent.ACTION_VIEW,uri);
+        startActivity(intent);
+    }
+
+    private void loadLink(){
+        Uri uri= Uri.parse(link);
+        Intent intent = new Intent( Intent.ACTION_VIEW,uri);
+        startActivity(intent);
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.material_button_seccion_two_continue:
-                loadDataThreeSeccion();
+                loadDataState();
+                break;
+            case R.id.material_button_seccion_two_see_more:
+                loadSeeMore();
+                break;
+            case R.id.material_button_seccion_two_link:
+                loadLink();
                 break;
         }
     }

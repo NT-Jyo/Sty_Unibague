@@ -20,6 +20,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.trbj.sty.Activitys.ConfirmRegistrationActivity;
 import com.trbj.sty.Activitys.TopicsActivity;
 import com.trbj.sty.Models.Subjects;
+import com.trbj.sty.Models.Topic;
 import com.trbj.sty.R;
 import com.trbj.sty.Shareds.SharedPreferenceSubjectsUser;
 import com.trbj.sty.Shareds.SharedPreferenceUserData;
@@ -45,10 +46,10 @@ public class RecycleViewAdapterSubjects extends  FirestoreRecyclerAdapter<Subjec
 
         String idDocument =documentSnapshot.getId();
         String nameSubjects = subjects.getNameSubject();
-        double likesSubjects= subjects.getLikes();
-        double commentsSubjects = subjects.getComments();
-        double studentsSubjects = subjects.getStudents();
-        double themesSubjects = subjects.getThemes();
+        int likesSubjects= subjects.getLikes();
+        int commentsSubjects = subjects.getComments();
+        int studentsSubjects = subjects.getStudents();
+        int themesSubjects = subjects.getThemes();
         String imageSubjects=subjects.getPhotoURL();
 
 
@@ -69,7 +70,7 @@ public class RecycleViewAdapterSubjects extends  FirestoreRecyclerAdapter<Subjec
                 sharedPreferenceSubjectsUser.setDataUserSubjects(idDocument);
                 sharedPreferenceSubjectsUser.setNameSubject(nameSubjects);
                 //Topics
-                Intent intent = new Intent(activity, TopicsActivity.class);
+                Intent intent = new Intent(activity, ConfirmRegistrationActivity.class);
                 activity.startActivity(intent);
 
             }

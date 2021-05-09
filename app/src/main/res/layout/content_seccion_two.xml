@@ -10,6 +10,7 @@
         android:id="@+id/card_view_seccion_two"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:cardElevation="10dp"
         android:layout_margin="8dp">
 
         <androidx.core.widget.NestedScrollView
@@ -61,6 +62,7 @@
                     android:layout_margin="8dp"
                     android:orientation="horizontal">
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/material_button_seccion_two_see_more"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
@@ -68,6 +70,7 @@
                         style="?attr/borderlessButtonStyle"
                         />
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/material_button_seccion_two_link"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Link"
