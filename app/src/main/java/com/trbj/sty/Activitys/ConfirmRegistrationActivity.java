@@ -68,7 +68,7 @@ public class ConfirmRegistrationActivity extends AppCompatActivity implements Vi
     private void loadAnimateGender(){
         if(sharedPreferenceSubjectsUser.getGenderTeacher()==1){
             lottieAnimationView.setAnimation("at_hanatachi_sticker.json");
-        }else{
+        }if(sharedPreferenceSubjectsUser.getGenderTeacher()==0){
             lottieAnimationView.setRepeatCount(3);
             lottieAnimationView.setAnimation("34105_anityanochki_at_russia2d_sticker_2.json");
         }

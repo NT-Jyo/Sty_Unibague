@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
@@ -40,6 +41,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     FirebaseFirestore firebaseFirestoreB;
     FirebaseAuth firebaseAuthB;
     FirebaseCrashlytics firebaseCrashlyticsB;
+    FirebaseAnalytics firebaseAnalytics;
 
     SharedPreferenceSubjectsUser sharedPreferenceSubjectsUser;
     SharedPreferenceQuestion sharedPreferenceQuestion;
@@ -59,6 +61,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         firebaseAuthB = FirebaseAuth.getInstance();
         firebaseFirestoreB = FirebaseFirestore.getInstance();
         firebaseCrashlyticsB = FirebaseCrashlytics.getInstance();
+        firebaseAnalytics= FirebaseAnalytics.getInstance(this);
 
         text_view_questionB = findViewById(R.id.text_view_question);
         text_input_input_solve_questionB = findViewById(R.id.text_input_input_solve_question);
@@ -204,6 +207,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
                         loadProgress();
                         getCommentsCount();
                         progressCount();
+                        loadAnalytics();
                         Toast.makeText(QuestionActivity.this, "Respuesta enviada", Toast.LENGTH_SHORT).show();
                         onBackPressed();
                         finish();
@@ -218,6 +222,13 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             firebaseCrashlyticsB.log("registerQuestion");
             firebaseCrashlyticsB.recordException(e);
         }
+    }
+
+    private void loadAnalytics(){
+        Bundle params = new Bundle();
+        params.putBoolean("question", true);
+        firebaseAnalytics.setDefaultEventParameters(params);
+        firebaseAnalytics.setUserId(loadEmailUser());
     }
 
 

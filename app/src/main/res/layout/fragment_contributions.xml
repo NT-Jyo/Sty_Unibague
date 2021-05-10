@@ -1,22 +1,354 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.contributions.ContributionsFragment">
 
-    <TextView
-        android:id="@+id/text_slideshow"
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_view_title_contributions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Mención especial"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_phrase_contributions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text=" Los sueños comienzan cuando se cree en ellos"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold|italic"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_title_contributions"></TextView>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/image_view_person_special1"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/bakugo_round"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_phrase_contributions">
+            </com.airbnb.lottie.LottieAnimationView>
+
+            <TextView
+                android:id="@+id/text_view_name_person"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Anastasia Shchavel"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/image_view_person_special1">
+            </TextView>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/image_view_person_special2"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/gustavo"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person">
+            </com.airbnb.lottie.LottieAnimationView>
+
+            <TextView
+                android:id="@+id/text_view_name_person2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ing Gustavo Martínez Villalobos"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/image_view_person_special2">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_title_contribution"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Contribuciones Lottie"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person2">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_name_person_lottie0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alexander Rozhkov - selenariy@gmail.com"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_title_contribution">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_name_person_lottie1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UX animation - www.uxanimation.co"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_lottie0">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/text_view_name_person_lottie2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alex Bradt - hello@alexbradt.com"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_lottie1">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_name_person_lottie3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Neus Vich - www.neusvich.com"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_lottie2">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_name_person_lottie4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dofx - www.dofx.de"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_lottie3">
+            </TextView>
+            <TextView
+                android:id="@+id/text_view_name_person_lottie5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aruppi Support"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_lottie4">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_name_person_lottie6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Daris Ali Mufti"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_lottie5">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_name_person_lottie7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Сергій Корсак"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_lottie6">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_title_contribution_Photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Contribuciones Pexels"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_lottie7">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_name_person_pexels0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Karolina Grabowska "
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_title_contribution_Photo">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_name_person_pexels1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ThisIsEngineering "
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_pexels0">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/text_view_name_person_pexels2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Marko Blazevic "
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_pexels1">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_name_person_pexels3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jeswin Thomas"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_pexels2">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_name_person_pexels4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Anete Lusina "
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_pexels3">
+            </TextView>
+
+
+
+
+
+            <TextView
+                android:id="@+id/text_view_title_contribution_flaticon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Contribuciones Flaticon"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_pexels4">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_name_person_flaticon0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kiranshastry"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_title_contribution_flaticon">
+            </TextView>
+
+            <TextView
+                android:id="@+id/text_view_name_person_flaticon1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dighital"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_flaticon0">
+            </TextView>
+
+            <TextView
+
+                android:id="@+id/text_view_name_person_flaticon2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Freepik"
+                android:textAlignment="center"
+                android:textColor="@color/primaryVariant"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name_person_flaticon1"></TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -29,6 +29,12 @@ public class SharedPreferenceSubjectsUser {
         editor.commit();
     }
 
+    public void setLikedState(Boolean state){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("liked", state);
+        editor.commit();
+    }
+
     public void setDataUserTopics(String idTopics){
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("idTopics", idTopics);
@@ -47,6 +53,10 @@ public class SharedPreferenceSubjectsUser {
         editor.commit();
     }
 
+    public boolean getLikeState(){
+        boolean idTeacher=sharedPreferences.getBoolean("liked",false);
+        return idTeacher;
+    }
     public int getGenderTeacher(){
         int idTeacher=sharedPreferences.getInt("genderTeacher",0);
         return idTeacher;

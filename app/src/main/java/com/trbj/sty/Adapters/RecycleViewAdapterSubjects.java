@@ -50,6 +50,35 @@ public class RecycleViewAdapterSubjects extends  FirestoreRecyclerAdapter<Subjec
         int commentsSubjects = subjects.getComments();
         int studentsSubjects = subjects.getStudents();
         int themesSubjects = subjects.getThemes();
+        int like =subjects.getLikes();
+        int notLike=subjects.getNotlikes();
+
+        if(like!=0&&notLike!=0){
+            int count =like+notLike;
+
+            double calculate = like/count;
+
+            if(calculate<0.2){
+                holder.imageView_start_4.setVisibility(View.INVISIBLE);
+                holder.imageView_start_3.setVisibility(View.INVISIBLE);
+                holder.imageView_start_2.setVisibility(View.INVISIBLE);
+                holder.imageView_start_1.setVisibility(View.INVISIBLE);
+            }
+
+            if(calculate<0.3){
+                holder.imageView_start_4.setVisibility(View.INVISIBLE);
+                holder.imageView_start_3.setVisibility(View.INVISIBLE);
+                holder.imageView_start_2.setVisibility(View.INVISIBLE);
+            }if(calculate<0.7){
+                holder.imageView_start_4.setVisibility(View.INVISIBLE);
+                holder.imageView_start_3.setVisibility(View.INVISIBLE);
+            }if(calculate<0.8){
+                holder.imageView_start_4.setVisibility(View.INVISIBLE);
+                holder.imageView_start_3.setVisibility(View.INVISIBLE);
+            }
+        }
+
+
         String imageSubjects=subjects.getPhotoURL();
 
 
@@ -89,12 +118,20 @@ public class RecycleViewAdapterSubjects extends  FirestoreRecyclerAdapter<Subjec
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         MaterialCardView materialCardView_subject;
+
         MaterialTextView materialTextView_subjects_name;
         MaterialTextView materialTextView_subjects_likes;
         MaterialTextView materialTextView_subjects_comments;
         MaterialTextView materialTextView_subjects_students;
         MaterialTextView materialTextView_subjects_themes;
+
         ImageView imageView_subjects_photo;
+        ImageView imageView_start_0;
+        ImageView imageView_start_1;
+        ImageView imageView_start_2;
+        ImageView imageView_start_3;
+        ImageView imageView_start_4;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             materialCardView_subject = itemView.findViewById(R.id.material_card_view_subject);
@@ -104,6 +141,11 @@ public class RecycleViewAdapterSubjects extends  FirestoreRecyclerAdapter<Subjec
             materialTextView_subjects_students=itemView.findViewById(R.id.text_view_students);
             materialTextView_subjects_themes=itemView.findViewById(R.id.tex_view_themes);
             imageView_subjects_photo=itemView.findViewById(R.id.image_view_subjets_photo);
+            imageView_start_0=itemView.findViewById(R.id.image_view_start0);
+            imageView_start_1=itemView.findViewById(R.id.image_view_start1);
+            imageView_start_2=itemView.findViewById(R.id.image_view_start2);
+            imageView_start_3=itemView.findViewById(R.id.image_view_start3);
+            imageView_start_4=itemView.findViewById(R.id.image_view_start4);
 
         }
     }

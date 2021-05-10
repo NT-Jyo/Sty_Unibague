@@ -1,6 +1,7 @@
 package com.trbj.sty.Activitys;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -10,13 +11,17 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.Lottie;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.trbj.sty.R;
 import com.trbj.sty.Shareds.SharedPreferenceUserData;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -62,6 +67,18 @@ public class HomeActivity extends AppCompatActivity {
         textView_email_header =(TextView)headerView.findViewById(R.id.text_view_email_header);
         imageView_header=(ImageView)headerView.findViewById(R.id.image_view_nav_header);
 
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            return;
+                        }
+
+
+                    }
+                });
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_Course, R.id.nav_annotations, R.id.nav_contributions)
                 .setOpenableLayout(drawer)

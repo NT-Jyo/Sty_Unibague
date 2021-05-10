@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -64,6 +65,7 @@ public class RecycleViewAdapterAnnotationDataBookTopic extends FirestoreRecycler
     public class ViewHolder extends RecyclerView.ViewHolder {
         MaterialCardView material_card_view_list_annotation_data_book_topicB;
         MaterialTextView text_view_name_list_annotation__data_book_topicB;
+        MaterialTextView text_view_book_topic_dateB;
         public ViewHolder(@NonNull View itemView) {
 
             super(itemView);

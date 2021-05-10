@@ -72,6 +72,7 @@ public class RecycleViewAdapterTeachers extends FirestoreRecyclerAdapter<Teacher
                 sharedPreferenceSubjectsUser.setGenderTeacher(gender);
                 Intent intent = new Intent(activity,SubjectsActivity.class);
                 activity.startActivity(intent);
+
                 Toast.makeText(holder.materialCardView_teacher.getContext(), "Toas test", Toast.LENGTH_SHORT).show();
             }
         });

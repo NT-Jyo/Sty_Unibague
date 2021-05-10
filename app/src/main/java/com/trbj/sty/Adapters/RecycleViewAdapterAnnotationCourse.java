@@ -38,6 +38,7 @@ public class RecycleViewAdapterAnnotationCourse extends FirestoreRecyclerAdapter
         String nameCourse = courses.getNameSubject();
         String authorCourse = courses.getIdTeacher();
         String idCourse = courses.getIdSubject();
+        Boolean state =courses.isLiked();
         holder.text_view_name_list_annotation_courseB.setText(nameCourse);
         holder.material_card_view_list_annotation_courseB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +49,7 @@ public class RecycleViewAdapterAnnotationCourse extends FirestoreRecyclerAdapter
                 sharedPreferenceSubjectsUser.setDataUserTeacher(authorCourse);
                 sharedPreferenceSubjectsUser.setDataUserSubjects(idCourse);
                 sharedPreferenceSubjectsUser.setNameSubject(nameCourse);
+                sharedPreferenceSubjectsUser.setLikedState(state);
                 appCompatActivity.startActivity(intent);
             }
         });

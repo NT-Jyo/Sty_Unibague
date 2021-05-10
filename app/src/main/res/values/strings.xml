@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sty</string>
+    <string name="app_name">Flui Unibague</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -43,4 +43,5 @@
     <string name="title_activity_seccion_three">SeccionThreeActivity</string>
     <string name="title_activity_seccion_four">SeccionFourActivity</string>
     <string name="title_activity_seccion_five">Preguntas</string>
+    <string name="default_notification_channel_id">users</string>
 </resources>

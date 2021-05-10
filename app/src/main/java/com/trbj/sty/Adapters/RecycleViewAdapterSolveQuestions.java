@@ -43,7 +43,7 @@ public class RecycleViewAdapterSolveQuestions extends FirestoreRecyclerAdapter<S
         DateFormat simple = new SimpleDateFormat("dd MMM yyyy HH:mm:ss");
 
         holder.text_view_solve_question_titleB.setText(questionInfo);
-        holder.text_view_solve_question_dateB.setText(simple.format(questionDate));
+        holder.text_view_solve_question_dateB.setText(simple.format(questionDate) + "-"+  " Nota: " +question.getQualification());
         holder.text_view_solve_question_solveB.setText(questionSolve);
         holder.text_view_solve_question_authorB.setText("{o,o}\n" +
                 "|)__)\n" +

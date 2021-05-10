@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -66,6 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     TextView textView_recover_password;
 
+
     SharedPreferenceUserData sharedPreferenceUserData;
 
     @Override
@@ -90,6 +92,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         signInButton_google = (SignInButton) findViewById(R.id.button_sign_google);
         materialButtonSign_in = (MaterialButton) findViewById(R.id.button_sign_in);
         materialButtonSign_register = (MaterialButton) findViewById(R.id.button_sign_register);
+
 
         signInButton_google.setSize(SignInButton.SIZE_STANDARD);
 
@@ -359,6 +362,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
+
                             Toast.makeText(LoginActivity.this,"Revisa la bandeja de entrada de tu correo electrónico", Toast.LENGTH_SHORT).show();
                         }else {
                             Toast.makeText(LoginActivity.this,"Correo electrónico no encontrado ", Toast.LENGTH_SHORT).show();

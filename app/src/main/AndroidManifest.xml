@@ -3,7 +3,7 @@
     package="com.trbj.sty">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -14,27 +14,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sty">
+        <activity android:name=".Activitys.DataBookPageActivity"></activity>
         <activity
             android:name=".Activitys.DataBookTopicActivity"
-            android:label="@string/label_annotations_reminders"/>
+            android:label="@string/label_annotations_reminders" />
         <activity
             android:name=".Activitys.DataBookActivity"
-            android:label="@string/label_annotations_Topics"/>
+            android:label="@string/label_annotations_Topics" />
         <activity
             android:name=".Activitys.AnnotationsActivity"
-            android:label="@string/label_annotations_subjects"/>
+            android:label="@string/label_annotations_subjects" />
         <activity
             android:name=".Activitys.AnnotationsNoteActivity"
-            android:label="@string/label_annotations_reminder"/>
+            android:label="@string/label_annotations_reminder" />
         <activity
             android:name=".Activitys.NoContentActivity"
             android:label="@string/label_NoContent" />
         <activity
             android:name=".Activitys.CourseQuestionActivity"
-            android:label="@string/label_course_question"/>
+            android:label="@string/label_course_question" />
         <activity
             android:name=".Activitys.QuestionSolveActivity"
-            android:label="@string/label_questions_solve"/>
+            android:label="@string/label_questions_solve" />
         <activity
             android:name=".Activitys.DataCourseActivity"
             android:label="@string/label_DataCourse" />
@@ -44,10 +45,9 @@
         <activity
             android:name=".Activitys.ConfirmRegistrationActivity"
             android:label="@string/label_ConfirmRegistration" />
-
         <activity
             android:name=".Activitys.QuestionActivity"
-            android:label="@string/label_question_phrase"/>
+            android:label="@string/label_question_phrase" />
         <activity
             android:name=".Activitys.SeccionFiveActivity"
             android:label="@string/title_activity_seccion_five"
@@ -84,20 +84,19 @@
             android:theme="@style/Theme.Sty.NoActionBar" />
         <activity
             android:name=".Activitys.RegisterActivity"
-            android:theme="@style/Theme.Sty.NoActionBar"
-            />
-        <activity android:name=".Activitys.LoginActivity"
-            android:theme="@style/Theme.Sty.NoActionBar"/>
+            android:theme="@style/Theme.Sty.NoActionBar" />
+        <activity
+            android:name=".Activitys.LoginActivity"
+            android:theme="@style/Theme.Sty.NoActionBar" />
         <activity
             android:name=".Activitys.SplashActivity"
-            android:theme="@style/Theme.Sty.NoActionBar"
-            >
+            android:theme="@style/Theme.Sty.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
@@ -112,6 +111,15 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <service
+            android:name="com.trbj.sty.Service.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

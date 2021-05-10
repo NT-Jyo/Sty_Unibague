@@ -46,29 +46,34 @@
                         android:orientation="horizontal">
 
                         <ImageView
+                            android:id="@+id/image_view_start0"
                             android:layout_width="10dp"
                             android:layout_height="10dp"
                             android:src="@drawable/rate" />
 
                         <ImageView
+                            android:id="@+id/image_view_start1"
                             android:layout_width="10dp"
                             android:layout_height="10dp"
                             android:src="@drawable/rate"
                             android:layout_marginLeft="2dp" />
 
                         <ImageView
+                            android:id="@+id/image_view_start2"
                             android:layout_width="10dp"
                             android:layout_height="10dp"
                             android:src="@drawable/rate"
                             android:layout_marginLeft="2dp" />
 
                         <ImageView
+                            android:id="@+id/image_view_start3"
                             android:layout_width="10dp"
                             android:layout_height="10dp"
                             android:src="@drawable/rate"
                             android:layout_marginLeft="2dp" />
 
                         <ImageView
+                            android:id="@+id/image_view_start4"
                             android:layout_width="10dp"
                             android:layout_height="10dp"
                             android:src="@drawable/rate"

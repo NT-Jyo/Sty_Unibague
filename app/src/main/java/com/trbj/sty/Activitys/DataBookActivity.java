@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -110,7 +111,8 @@ public class DataBookActivity extends AppCompatActivity {
 
                 break;
             case R.id.action_back:
-                onBackPressed();
+                Intent intent=new Intent(DataBookActivity.this,HomeActivity.class);
+                startActivity(intent);
                 break;
         }
 

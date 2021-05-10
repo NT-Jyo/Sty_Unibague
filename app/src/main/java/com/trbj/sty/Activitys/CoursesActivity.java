@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.SearchView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -76,6 +80,48 @@ public class CoursesActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Inflate the menu; this adds items to the action bar if it is present.
+     * @param menu
+     * @return
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.course, menu);
+        MenuItem menuItem = menu.findItem(R.id.app_bar_search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                loadDateCoursesSearch(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                loadDateCoursesSearch(newText);
+                return false;
+            }
+        });
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_help:
+
+                break;
+            case R.id.action_back:
+                Intent intent=new Intent(CoursesActivity.this,HomeActivity.class);
+                startActivity(intent);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     private void loadDataCourses(){
         try{
@@ -101,4 +147,28 @@ public class CoursesActivity extends AppCompatActivity {
 
         }
     }
+
+    private void loadDateCoursesSearch(String querySearch) {
+        try{
+            String[] idUser = loadUserEmail().split("\\@");
+
+            if (idUser[1].equals("estudiantesunibague.edu.co") || idUser[1].equals("unibague.edu.co")) {
+                Query query = firebaseFirestoreB.collection("Unibague").document(loadUserEmail()).collection("Course").orderBy("nameSubject").startAt(querySearch).endAt(querySearch + "\uf8ff");
+                FirestoreRecyclerOptions<Courses> fireStoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Courses>().setQuery(query, Courses.class).build();
+                recycleViewAdapterCourses = new RecycleViewAdapterCourses(fireStoreRecyclerOptions);
+                recycleViewAdapterCourses.startListening();
+                recyclerView_courses.setAdapter(recycleViewAdapterCourses);
+            } else {
+                Query query = firebaseFirestoreB.collection("Usuario").document(loadUserEmail()).collection("Course").orderBy("nameSubject").startAt(querySearch).endAt(querySearch + "\uf8ff");
+                FirestoreRecyclerOptions<Courses> fireStoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Courses>().setQuery(query, Courses.class).build();
+                recycleViewAdapterCourses = new RecycleViewAdapterCourses(fireStoreRecyclerOptions);
+                recycleViewAdapterCourses.startListening();
+                recyclerView_courses.setAdapter(recycleViewAdapterCourses);
+            }
+        }catch (Exception e){
+        Log.w("TAG", "loadDateCoursesSearch in failed", e);
+        firebaseCrashlyticsB.log("loadDataCoursesSearch");
+        firebaseCrashlyticsB.recordException(e);
+
+    }}
 }

@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.SearchView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -70,6 +74,49 @@ public class QuestionSolveActivity extends AppCompatActivity {
         recycleViewAdapterSolveQuestions.startListening();
     }
 
+    /**
+     * Inflate the menu; this adds items to the action bar if it is present.
+     * @param menu
+     * @return
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.course, menu);
+        MenuItem menuItem = menu.findItem(R.id.app_bar_search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                loadDataQuestionSolveSearch(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                loadDataQuestionSolveSearch(newText);
+                return false;
+            }
+        });
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_help:
+
+                break;
+            case R.id.action_back:
+                Intent intent=new Intent(QuestionSolveActivity.this,HomeActivity.class);
+                startActivity(intent);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     private String loadIdTeacher(){
         String loadIdTeacher= sharedPreferenceSubjectsUser.getTeacherUser();
         System.out.println("loadIdTeacher"+loadIdTeacher);
@@ -82,12 +129,31 @@ public class QuestionSolveActivity extends AppCompatActivity {
         return loadIdSubjects;
     }
 
+
+
     private void loadDataQuestionSolve(){
         try{
             Query query = firebaseFirestoreB.collection("Aula").document(loadIdTeacher()).collection("Subjects").document(loadIdSubjects()).collection("comments")
                     .whereGreaterThanOrEqualTo("qualification",4);
             FirestoreRecyclerOptions<SolveQuestion> fireStoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<SolveQuestion>().setQuery(query, SolveQuestion.class).build();
             recycleViewAdapterSolveQuestions = new RecycleViewAdapterSolveQuestions(fireStoreRecyclerOptions);
+            recycleViewAdapterSolveQuestions.startListening();
+            recyclerView_question_solves.setAdapter(recycleViewAdapterSolveQuestions);
+        }catch (Exception e){
+            Log.w("TAG", "loadDataSubjects in failed", e);
+            firebaseCrashlyticsB.log("loadDataSubjects");
+            firebaseCrashlyticsB.recordException(e);
+
+        }
+    }
+
+    private void loadDataQuestionSolveSearch(String querySearch){
+        try{
+            Query query = firebaseFirestoreB.collection("Aula").document(loadIdTeacher()).collection("Subjects").document(loadIdSubjects()).collection("comments")
+                    .orderBy("question").startAt(querySearch).endAt(querySearch + "\uf8ff");;
+            FirestoreRecyclerOptions<SolveQuestion> fireStoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<SolveQuestion>().setQuery(query, SolveQuestion.class).build();
+            recycleViewAdapterSolveQuestions = new RecycleViewAdapterSolveQuestions(fireStoreRecyclerOptions);
+            recycleViewAdapterSolveQuestions.startListening();
             recyclerView_question_solves.setAdapter(recycleViewAdapterSolveQuestions);
         }catch (Exception e){
             Log.w("TAG", "loadDataSubjects in failed", e);

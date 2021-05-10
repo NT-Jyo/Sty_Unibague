@@ -70,6 +70,7 @@ public class TopicsActivity extends AppCompatActivity {
         super.onStop();
         recycleViewAdapterTopics.startListening();
     }
+
     /**
      * Inflate the menu; this adds items to the action bar if it is present.
      * @param menu
