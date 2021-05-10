@@ -26,8 +26,11 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardElevation="10dp"
             app:cardCornerRadius="12dp"
+            app:strokeWidth="1dp"
+            app:rippleColor="@color/primary"
+            app:strokeColor="@color/primaryVariant"
+            app:cardElevation="10dp"
             android:layout_margin="12dp"
             >
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -35,12 +38,13 @@
                 android:layout_height="match_parent"
                 android:padding="16dp"
                 android:gravity="center"
+
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/facultyengineeringcompri">
+                    android:src="@drawable/leccion">
                 </ImageView>
 
                 <TextView
@@ -48,6 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="Cursos"
+                    android:textColor="@color/primaryVariant"
                     android:textSize="18sp">
                 </TextView>
 
@@ -60,6 +65,9 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
+            app:strokeWidth="1dp"
+            app:rippleColor="@color/primary"
+            app:strokeColor="@color/primaryVariant"
             app:cardElevation="10dp"
             app:cardCornerRadius="12dp"
             android:layout_margin="12dp"
@@ -74,7 +82,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/facultyengineeringcompri">
+                    android:src="@drawable/trofeo_de_juego">
                 </ImageView>
 
                 <TextView
@@ -82,18 +90,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="Repuestas"
+                    android:textColor="@color/primaryVariant"
                     android:textSize="18sp">
                 </TextView>
             </androidx.appcompat.widget.LinearLayoutCompat>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_view_annotation_course_book"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             app:cardElevation="10dp"
             app:cardCornerRadius="12dp"
+            app:strokeWidth="1dp"
+            app:rippleColor="@color/primary"
+            app:strokeColor="@color/primaryVariant"
             android:layout_margin="12dp"
             >
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -103,54 +116,26 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie_animation_egg"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/facultyengineeringcompri">
-                </ImageView>
+                    android:src="@drawable/agenda">
+                </com.airbnb.lottie.LottieAnimationView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="Diario"
+                    android:text="Libreta"
+                    android:textColor="@color/primaryVariant"
                     android:textSize="18sp">
                 </TextView>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
         </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            app:cardElevation="10dp"
-            app:cardCornerRadius="12dp"
-            android:layout_margin="12dp"
-            >
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="16dp"
-                android:gravity="center"
-                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/facultyengineeringcompri">
-                </ImageView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Repuestas"
-                    android:textSize="18sp">
-                </TextView>
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </com.google.android.material.card.MaterialCardView>
     </GridLayout>
 
 

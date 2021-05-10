@@ -205,18 +205,6 @@ public class SeccionOneActivity extends AppCompatActivity implements  View.OnCli
     }
 
     private void loadAnnotations(){
-
-        //TODO AQUI DEBO INICIAR LAS ANOTACIONES
-        Toast.makeText(SeccionOneActivity.this,"EL BOTON ESTA ACTIVO",Toast.LENGTH_SHORT).show();
-        String[] idUser = emailUser().split("\\@");
-
-        if (idUser[1].equals("estudiantesunibague.edu.co") || idUser[1].equals("unibague.edu.co")) {
-            firebaseFirestoreB.collection("Unibague").document(emailUser()).collection("Course").document(loadIdSubjects()).collection("Annotations").document("Seccion1");
-        } else {
-            firebaseFirestoreB.collection("Usuario").document(emailUser()).collection("Course").document(loadIdSubjects()).collection("Annotations").document("Seccion1");
-        }
-
-
         Intent intent = new Intent(SeccionOneActivity.this, AnnotationsNoteActivity.class);
         startActivity(intent);
     }

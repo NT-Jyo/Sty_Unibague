@@ -68,8 +68,8 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
 
-    //Youtube
-    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+    //Ucrop
+    implementation 'com.github.yalantis:ucrop:2.2.6'
 
 
 }

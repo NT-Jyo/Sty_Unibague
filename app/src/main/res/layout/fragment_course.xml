@@ -22,7 +22,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="8dp"
-                app:cardElevation="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -37,7 +36,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/facultyengineeringcompri"
+                        android:src="@drawable/pexels_thisisengineering_3861963"
 
                         />
 
@@ -52,6 +51,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Facultad De Ingenieria"
+                            android:textColor="@color/primaryVariant"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                         <TextView
@@ -74,9 +74,11 @@
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/material_button_faculty_engineering"
                             style="?attr/borderlessButtonStyle"
+                            android:textColor="@color/primaryVariant"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
+                            app:rippleColor="@color/primaryVariant"
                             android:text="Ingresar" />
                     </LinearLayout>
                 </LinearLayout>
@@ -105,7 +107,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/ifacultyengineeringunibague"
+                        android:src="@drawable/pexels_karolina_grabowska_4386393"
                     />
 
                     <LinearLayout
@@ -118,6 +120,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/primaryVariant"
                             android:text="Facultad De Ciencas Economicas y Administrativas"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
@@ -144,6 +147,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
+                            app:rippleColor="@color/primaryVariant"
+                            android:textColor="@color/primaryVariant"
                             android:text="Ingresar" />
                     </LinearLayout>
                 </LinearLayout>
@@ -172,7 +177,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/ifacultyengineeringunibague"
+                        android:src="@drawable/pexels_jeswin_thomas_3781338"
                         />
 
                     <LinearLayout
@@ -185,6 +190,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/primaryVariant"
                             android:text="Facultad De Ciencas Naturales y Matematicas"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
@@ -211,6 +217,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
+                            app:rippleColor="@color/primaryVariant"
+                            android:textColor="@color/primaryVariant"
                             android:text="Ingresar" />
                     </LinearLayout>
                 </LinearLayout>
@@ -240,7 +248,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/ifacultyengineeringunibague"
+                        android:src="@drawable/pexels_anete_lusina_5721099"
                         />
 
                     <LinearLayout
@@ -253,6 +261,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/primaryVariant"
                             android:text="Facultad De Derecho y Ciencias Politicas"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
@@ -279,6 +288,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
+                            app:rippleColor="@color/primaryVariant"
+                            android:textColor="@color/primaryVariant"
                             android:text="Ingresar" />
                     </LinearLayout>
                 </LinearLayout>
@@ -308,7 +319,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/ifacultyengineeringunibague"
+                        android:src="@drawable/pexels_marko_blazevic_1053687"
                         />
 
                     <LinearLayout
@@ -321,6 +332,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/primaryVariant"
                             android:text="Facultad De Humanidades, Artes y Ciencias Sociales"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
@@ -328,7 +340,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:text="Arquitectura, Comunicacion Social y Periodismo, Dise;o, Psicologia."
+                            android:text="Arquitectura, Comunicacion Social y Periodismo, Diseño, Psicologia."
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
@@ -346,7 +358,9 @@
                             style="?attr/borderlessButtonStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/primaryVariant"
                             android:layout_marginEnd="8dp"
+                            app:rippleColor="@color/primaryVariant"
                             android:text="Ingresar" />
                     </LinearLayout>
                 </LinearLayout>

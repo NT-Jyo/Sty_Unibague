@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -27,9 +28,11 @@ public class TopicsActivity extends AppCompatActivity {
 
     RecyclerView recyclerView_topics;
     RecycleViewAdapterTopic recycleViewAdapterTopics;
+
     FirebaseFirestore firebaseFirestoreB;
     FirebaseAuth firebaseAuthB;
     FirebaseCrashlytics firebaseCrashlyticsB;
+
     SharedPreferenceSubjectsUser sharedPreferenceSubjectsUser;
 
 
@@ -40,6 +43,7 @@ public class TopicsActivity extends AppCompatActivity {
 
         recyclerView_topics = findViewById(R.id.recycle_view_topics);
         recyclerView_topics.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
         firebaseAuthB =FirebaseAuth.getInstance();
         firebaseFirestoreB= FirebaseFirestore.getInstance();
         firebaseCrashlyticsB=FirebaseCrashlytics.getInstance();
@@ -107,7 +111,8 @@ public class TopicsActivity extends AppCompatActivity {
 
                 break;
             case R.id.action_back:
-                onBackPressed();
+                Intent intent=new Intent(TopicsActivity.this,HomeActivity.class);
+                startActivity(intent);
                 break;
         }
 

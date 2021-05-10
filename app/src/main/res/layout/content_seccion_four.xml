@@ -24,12 +24,13 @@
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
                 android:layout_marginStart="50dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="50dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:lottie_autoPlay="true"
-                app:lottie_fileName="student_with_books.json"
+                app:lottie_fileName="60259_web_design-illustration.json"
                 app:lottie_imageAssetsFolder="assets"
                 app:lottie_loop="true" />
 
@@ -37,9 +38,11 @@
                 android:id="@+id/text_view_seccion_four_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="TEXT"
                 android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/primary"
+                android:gravity="center"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lottie_animation_seccion_four" />
 
@@ -47,14 +50,16 @@
                 android:id="@+id/text_view_seccion_four_name1_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_margin="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textAlignment="center"
                 android:text="NameLink"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary"
+                android:textColor="@color/primaryVariant"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_view_seccion_four_title"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/text_view_seccion_four_title" />
 
             <TextView
                 android:id="@+id/text_view_seccion_four_name2_link"
@@ -62,23 +67,28 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textAlignment="center"
                 android:text="NameLink"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary"
+                android:textColor="@color/primaryVariant"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_view_seccion_four_name1_link"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/text_view_seccion_four_name1_link" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/material_button_seccion_four_continue"
+                style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Continuar"
                 android:layout_margin="8dp"
-                style="?attr/borderlessButtonStyle"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:text="Continuar"
+                android:textColor="@color/primaryVariant"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_view_seccion_four_name2_link"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/text_view_seccion_four_name2_link" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

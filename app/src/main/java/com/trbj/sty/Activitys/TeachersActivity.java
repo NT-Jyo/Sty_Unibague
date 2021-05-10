@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -108,7 +109,8 @@ public class TeachersActivity extends AppCompatActivity {
 
                 break;
             case R.id.action_back:
-                onBackPressed();
+                Intent intent=new Intent(TeachersActivity.this,HomeActivity.class);
+                startActivity(intent);
                 break;
         }
 

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -41,6 +42,7 @@ public class ConfirmRegistrationActivity extends AppCompatActivity implements Vi
     FirebaseCrashlytics firebaseCrashlyticsB;
 
     MaterialButton material_button_confirm_registrationB;
+    LottieAnimationView lottieAnimationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +53,27 @@ public class ConfirmRegistrationActivity extends AppCompatActivity implements Vi
         firebaseFirestoreB = FirebaseFirestore.getInstance();
         firebaseCrashlyticsB= FirebaseCrashlytics.getInstance();
 
+        lottieAnimationView=(LottieAnimationView)findViewById(R.id.lottie_animation_register);
+
         sharedPreferenceUserData = new SharedPreferenceUserData(this);
         sharedPreferenceSubjectsUser = new SharedPreferenceSubjectsUser(this);
 
         material_button_confirm_registrationB = findViewById(R.id.material_button_confirm_registration);
         material_button_confirm_registrationB.setOnClickListener(this);
+        loadAnimateGender();
     }
 
+
+
+    private void loadAnimateGender(){
+        if(sharedPreferenceSubjectsUser.getGenderTeacher()==1){
+            lottieAnimationView.setAnimation("at_hanatachi_sticker.json");
+        }else{
+            lottieAnimationView.setRepeatCount(3);
+            lottieAnimationView.setAnimation("34105_anityanochki_at_russia2d_sticker_2.json");
+        }
+
+    }
 
     private void saveDataCourse(){
 
@@ -152,6 +168,7 @@ public class ConfirmRegistrationActivity extends AppCompatActivity implements Vi
         saveDataCourse();
         getStudentsCount();
         Intent intent = new Intent(ConfirmRegistrationActivity.this, CoursesActivity.class);
+        finish();
         startActivity(intent);
     }
 

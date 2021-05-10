@@ -16,6 +16,13 @@ public class SharedPreferenceSubjectsUser {
         editor.commit();
     }
 
+    public void setGenderTeacher(int idTeacher){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("genderTeacher", idTeacher);
+        editor.commit();
+    }
+
+
     public void setDataUserSubjects(String idSubjects){
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("idSubjects", idSubjects);
@@ -38,6 +45,11 @@ public class SharedPreferenceSubjectsUser {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("nameSubject", nameSubject);
         editor.commit();
+    }
+
+    public int getGenderTeacher(){
+        int idTeacher=sharedPreferences.getInt("genderTeacher",0);
+        return idTeacher;
     }
 
     public String getNameSubject(){

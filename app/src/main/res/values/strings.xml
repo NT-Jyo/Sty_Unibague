@@ -10,14 +10,22 @@
     <string name="label_topic">Temas</string>
     <string name="label_subjects">Asignaturas</string>
     <string name="label_ConfirmRegistration">Seguro?</string>
+    <string name="label_Annotations">Recordatorio</string>
     <string name="label_Courses">(>‘o’)></string>
     <string name="label_DataCourse">(っ◕‿◕)っ</string>
     <string name="label_NoContent">щ（ﾟДﾟщ）</string>
+    <string name="label_questions_solve">o(#￣▽￣)==O))￣0￣”)</string>
+    <string name="label_course_question">＼(◎o◎)／！</string>
+    <string name="label_annotations_subjects">Asignaturas</string>
+    <string name="label_annotations_Topics">Temas</string>
+    <string name="label_annotations_reminders">Recordatorios</string>
+    <string name="label_annotations_reminder">Recordatorio</string>
+    <string name="label_question_phrase">Que comience la masacre</string>
 
     <string name="action_settings">Configuraciones</string>
     <string name="action_exit">Salir</string>
     <string name="action_help">Ayuda</string>
-    <string name="action_back">Volver</string>
+    <string name="action_back">Inicio</string>
 
     <string name="menu_course">Cursos</string>
     <string name="menu_annotations">Anotaciones</string>

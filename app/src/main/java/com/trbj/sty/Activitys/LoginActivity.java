@@ -2,8 +2,12 @@ package com.trbj.sty.Activitys;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -94,6 +98,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         materialButtonSign_register.setOnClickListener(this);
         textView_recover_password.setOnClickListener(this);
 
+        if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);
+        }
 
         googleSignInClient_google();
         loadPreferenceEmailUser();
@@ -383,7 +390,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         try{
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
-            finish();
         }catch (Exception e){
             firebaseCrashlyticsB.log("register");
             firebaseCrashlyticsB.recordException(e);

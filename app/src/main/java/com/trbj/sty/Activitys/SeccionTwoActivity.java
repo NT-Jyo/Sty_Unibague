@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,14 +31,16 @@ import com.trbj.sty.Models.Topics.Introduction;
 import com.trbj.sty.Models.Topics.Seccion;
 import com.trbj.sty.R;
 import com.trbj.sty.Shareds.SharedPreferenceSubjectsUser;
+import com.trbj.sty.Shareds.SharedPreferenceUserData;
 
 public class SeccionTwoActivity extends AppCompatActivity implements View.OnClickListener {
 
     FirebaseAuth firebaseAuthB;
     FirebaseCrashlytics firebaseCrashlyticsB;
     FirebaseFirestore firebaseFirestoreB;
-    SharedPreferenceSubjectsUser sharedPreferenceSubjectsUser;
 
+    SharedPreferenceSubjectsUser sharedPreferenceSubjectsUser;
+    SharedPreferenceUserData sharedPreferenceUserData;
 
     ImageView image_view_seccion_twoB;
     TextView text_view_title_seccion_twoB;
@@ -49,6 +52,8 @@ public class SeccionTwoActivity extends AppCompatActivity implements View.OnClic
 
     private String seeMore;
     private String link;
+
+    FloatingActionButton floatingActionButton_seccion_two;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,24 +75,18 @@ public class SeccionTwoActivity extends AppCompatActivity implements View.OnClic
         material_button_seccion_two_see_moreB=findViewById(R.id.material_button_seccion_two_see_more);
         material_button_seccion_two_linkB=findViewById(R.id.material_button_seccion_two_link);
 
+        floatingActionButton_seccion_two=findViewById(R.id.material_floating_seccion_two);
+        sharedPreferenceUserData = new SharedPreferenceUserData(this);
         sharedPreferenceSubjectsUser = new SharedPreferenceSubjectsUser(this);
 
         material_button_seccion_two_continueB.setOnClickListener(this);
         material_button_seccion_two_see_moreB.setOnClickListener(this);
         material_button_seccion_two_linkB.setOnClickListener(this);
+        floatingActionButton_seccion_two.setOnClickListener(this);
+
 
         setTitle(sharedPreferenceSubjectsUser.getNameSubject());
         loadData();
-
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -196,6 +195,13 @@ public class SeccionTwoActivity extends AppCompatActivity implements View.OnClic
         startActivity(intent);
     }
 
+
+    private void loadAnnotations(){
+       Intent intent = new Intent(SeccionTwoActivity.this, AnnotationsNoteActivity.class);
+       startActivity(intent);
+    }
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -207,6 +213,9 @@ public class SeccionTwoActivity extends AppCompatActivity implements View.OnClic
                 break;
             case R.id.material_button_seccion_two_link:
                 loadLink();
+                break;
+            case R.id.material_floating_seccion_two:
+                loadAnnotations();
                 break;
         }
     }

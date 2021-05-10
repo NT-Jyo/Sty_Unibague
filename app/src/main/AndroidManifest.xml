@@ -3,6 +3,9 @@
     package="com.trbj.sty">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,13 +14,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sty">
-        <activity android:name=".Activitys.AnnotationsActivity"></activity>
-        <activity android:name=".Activitys.AnnotationsNoteActivity" />
+        <activity
+            android:name=".Activitys.DataBookTopicActivity"
+            android:label="@string/label_annotations_reminders"/>
+        <activity
+            android:name=".Activitys.DataBookActivity"
+            android:label="@string/label_annotations_Topics"/>
+        <activity
+            android:name=".Activitys.AnnotationsActivity"
+            android:label="@string/label_annotations_subjects"/>
+        <activity
+            android:name=".Activitys.AnnotationsNoteActivity"
+            android:label="@string/label_annotations_reminder"/>
         <activity
             android:name=".Activitys.NoContentActivity"
             android:label="@string/label_NoContent" />
-        <activity android:name=".Activitys.CourseQuestionActivity" />
-        <activity android:name=".Activitys.QuestionSolveActivity" />
+        <activity
+            android:name=".Activitys.CourseQuestionActivity"
+            android:label="@string/label_course_question"/>
+        <activity
+            android:name=".Activitys.QuestionSolveActivity"
+            android:label="@string/label_questions_solve"/>
         <activity
             android:name=".Activitys.DataCourseActivity"
             android:label="@string/label_DataCourse" />
@@ -27,7 +44,10 @@
         <activity
             android:name=".Activitys.ConfirmRegistrationActivity"
             android:label="@string/label_ConfirmRegistration" />
-        <activity android:name=".Activitys.QuestionActivity" />
+
+        <activity
+            android:name=".Activitys.QuestionActivity"
+            android:label="@string/label_question_phrase"/>
         <activity
             android:name=".Activitys.SeccionFiveActivity"
             android:label="@string/title_activity_seccion_five"
@@ -62,15 +82,36 @@
             android:name=".Activitys.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.Sty.NoActionBar" />
-        <activity android:name=".Activitys.RegisterActivity" />
-        <activity android:name=".Activitys.LoginActivity" />
-        <activity android:name=".Activitys.SplashActivity">
+        <activity
+            android:name=".Activitys.RegisterActivity"
+            android:theme="@style/Theme.Sty.NoActionBar"
+            />
+        <activity android:name=".Activitys.LoginActivity"
+            android:theme="@style/Theme.Sty.NoActionBar"/>
+        <activity
+            android:name=".Activitys.SplashActivity"
+            android:theme="@style/Theme.Sty.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.trbj.sty.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

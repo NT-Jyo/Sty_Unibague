@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="10dp"
+        app:rippleColor="@color/primaryVariant"
         android:layout_margin="8dp">
 
     <LinearLayout
@@ -37,6 +38,7 @@
         <!-- Title, secondary and supporting text -->
         <TextView
             android:id="@+id/text_view_name_teacher"
+            android:textColor="@color/primaryVariant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

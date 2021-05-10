@@ -13,22 +13,22 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="at_hanatachi_sticker.json"
-        app:lottie_imageAssetsFolder="assets"
-        />
+
+        app:lottie_imageAssetsFolder="assets" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/text_view_confirm_registration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Veamos avdsds"
+        android:text="Tus talentos y habilidades irán mejorando con el tiempo, pero para eso has de empezar (Martin Luther King)"
         android:padding="10dp"
+        android:textColor="@color/primaryVariant"
         android:gravity="center"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,10 @@
         android:id="@+id/material_button_confirm_registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrar"
+        android:text="Registrarse"
+        app:rippleColor="@color/primary"
+        app:strokeColor="@color/primaryVariant"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_confirm_registration">

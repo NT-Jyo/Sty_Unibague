@@ -1,28 +1,25 @@
 package com.trbj.sty.Models;
 
 public class Annotations {
-
     private String Title;
     private String date;
-    private String Description;
     private String photoURL;
     private String keywords;
     private String examples;
     private String resume;
-    private String subjectName;
+    private String topic;
 
     public Annotations(){
     }
 
-    public Annotations(String title, String date, String description, String photoURL, String keywords, String examples, String resume, String subjectName) {
+    public Annotations(String title, String date, String photoURL, String keywords, String examples, String resume, String topic) {
         Title = title;
         this.date = date;
-        Description = description;
         this.photoURL = photoURL;
         this.keywords = keywords;
         this.examples = examples;
         this.resume = resume;
-        this.subjectName = subjectName;
+        this.topic = topic;
     }
 
     public String getTitle() {
@@ -39,14 +36,6 @@ public class Annotations {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
     }
 
     public String getPhotoURL() {
@@ -81,11 +70,11 @@ public class Annotations {
         this.resume = resume;
     }
 
-    public String getSubjectName() {
-        return subjectName;
+    public String getTopic() {
+        return topic;
     }
 
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 }

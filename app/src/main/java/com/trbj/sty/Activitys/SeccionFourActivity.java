@@ -44,6 +44,8 @@ public class SeccionFourActivity extends AppCompatActivity implements  View.OnCl
 
     MaterialButton material_button_seccion_four_continueB;
 
+    FloatingActionButton floatingActionButton_seccion_four;
+
     private String link1;
     private String link2;
 
@@ -63,10 +65,12 @@ public class SeccionFourActivity extends AppCompatActivity implements  View.OnCl
         text_view_seccion_four_name2_linkB=findViewById(R.id.text_view_seccion_four_name2_link);
 
         material_button_seccion_four_continueB=findViewById(R.id.material_button_seccion_four_continue);
-
+        floatingActionButton_seccion_four=findViewById(R.id.material_floating_seccion_four);
         sharedPreferenceSubjectsUser = new SharedPreferenceSubjectsUser(this);
 
         material_button_seccion_four_continueB.setOnClickListener(this);
+        floatingActionButton_seccion_four.setOnClickListener(this);
+
         text_view_seccion_four_name1_linkB.setOnClickListener(this);
         text_view_seccion_four_name2_linkB.setOnClickListener(this);
 
@@ -74,14 +78,7 @@ public class SeccionFourActivity extends AppCompatActivity implements  View.OnCl
 
         loadData();
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
     }
 
     @Override
@@ -186,6 +183,11 @@ public class SeccionFourActivity extends AppCompatActivity implements  View.OnCl
         startActivity(intent);
     }
 
+    private void loadAnnotations(){
+        Intent intent = new Intent(SeccionFourActivity.this, AnnotationsNoteActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -198,6 +200,9 @@ public class SeccionFourActivity extends AppCompatActivity implements  View.OnCl
                 break;
             case R.id.text_view_seccion_four_name2_link:
                 loadLink2();
+                break;
+            case R.id.material_floating_seccion_four:
+                loadAnnotations();
                 break;
         }
     }

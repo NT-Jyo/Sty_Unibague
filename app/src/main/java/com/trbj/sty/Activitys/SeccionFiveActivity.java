@@ -5,10 +5,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
@@ -34,6 +37,8 @@ public class SeccionFiveActivity extends AppCompatActivity {
     SharedPreferenceSubjectsUser sharedPreferenceSubjectsUser;
     SharedPreferenceQuestion sharedPreferenceQuestion;
 
+    FloatingActionButton material_floating_seccion_five;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,12 +51,23 @@ public class SeccionFiveActivity extends AppCompatActivity {
         firebaseCrashlyticsB=FirebaseCrashlytics.getInstance();
 
         recyclerView_questions = findViewById(R.id.recycle_view_questions);
+        material_floating_seccion_five=findViewById(R.id.material_floating_seccion_five);
         recyclerView_questions.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
 
         sharedPreferenceSubjectsUser = new SharedPreferenceSubjectsUser(this);
         sharedPreferenceQuestion = new SharedPreferenceQuestion(this);
         loadDataQuestions();
         setTitle("Preguntas");
+
+        material_floating_seccion_five.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(SeccionFiveActivity.this,TopicsActivity.class);
+                finish();
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

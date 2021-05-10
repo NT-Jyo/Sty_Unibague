@@ -206,6 +206,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
                         progressCount();
                         Toast.makeText(QuestionActivity.this, "Respuesta enviada", Toast.LENGTH_SHORT).show();
                         onBackPressed();
+                        finish();
                     }
                 });
             } else {
@@ -225,7 +226,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.material_button_question_send:
                 registerQuestion();
-                Toast.makeText(QuestionActivity.this, "NO me presiones", Toast.LENGTH_SHORT).show();
+                Toast.makeText(QuestionActivity.this, "Suerte !!", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

@@ -49,6 +49,8 @@ public class SeccionThreeActivity extends AppCompatActivity implements View.OnCl
     private String seeMore;
     private String link;
 
+    FloatingActionButton floatingActionButton_seccion_three;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +69,7 @@ public class SeccionThreeActivity extends AppCompatActivity implements View.OnCl
         material_button_seccion_three_continueB =findViewById(R.id.material_button_seccion_three_continue);
         material_button_three_see_moreB = findViewById(R.id.material_button_seccion_three_see_more);
         material_button_three_linkB=findViewById(R.id.material_button_seccion_three_link);
+        floatingActionButton_seccion_three=findViewById(R.id.material_floating_seccion_three);
 
         sharedPreferenceSubjectsUser = new SharedPreferenceSubjectsUser(this);
 
@@ -75,17 +78,11 @@ public class SeccionThreeActivity extends AppCompatActivity implements View.OnCl
         material_button_three_see_moreB.setOnClickListener(this);
         material_button_three_linkB.setOnClickListener(this);
 
+        floatingActionButton_seccion_three.setOnClickListener(this);
+
         setTitle(sharedPreferenceSubjectsUser.getNameSubject());
         loadData();
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -193,6 +190,10 @@ public class SeccionThreeActivity extends AppCompatActivity implements View.OnCl
         Intent intent = new Intent( Intent.ACTION_VIEW,uri);
         startActivity(intent);
     }
+    private void loadAnnotations(){
+        Intent intent = new Intent(SeccionThreeActivity.this, AnnotationsNoteActivity.class);
+        startActivity(intent);
+    }
 
 
     @Override
@@ -206,6 +207,9 @@ public class SeccionThreeActivity extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.material_button_seccion_three_link:
                 loadLink();
+                break;
+            case R.id.material_floating_seccion_three:
+                loadAnnotations();
                 break;
         }
     }

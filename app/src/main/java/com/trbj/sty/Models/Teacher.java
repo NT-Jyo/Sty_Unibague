@@ -12,11 +12,11 @@ public class Teacher {
     private String rol;
     private boolean state;
     private String uid;
-
+    private int gender;
     public Teacher() {
     }
 
-    public Teacher(String subjects, String description, String email, String displayName, String program, String faculty, long date, String photoURL, String rol, boolean state, String uid) {
+    public Teacher(String subjects, String description, String email, String displayName, String program, String faculty, long date, String photoURL, String rol, boolean state, String uid, int gender) {
         this.subjects = subjects;
         this.description = description;
         this.email = email;
@@ -28,6 +28,7 @@ public class Teacher {
         this.rol = rol;
         this.state = state;
         this.uid = uid;
+        this.gender = gender;
     }
 
     public String getSubjects() {
@@ -116,6 +117,14 @@ public class Teacher {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
     }
 }
 

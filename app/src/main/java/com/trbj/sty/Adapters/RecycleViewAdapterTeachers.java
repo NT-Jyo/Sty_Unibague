@@ -51,6 +51,7 @@ public class RecycleViewAdapterTeachers extends FirestoreRecyclerAdapter<Teacher
         String emailTeacher = teacher.getEmail();
         String descriptionTeacher = teacher.getDescription();
         String imageTeacher=teacher.getPhotoURL();
+        int gender=teacher.getGender();
 
         holder.textView_nameTeacher.setText(nameTeacher);
         holder.textView_programTeacher.setText(programTeacher);
@@ -68,6 +69,7 @@ public class RecycleViewAdapterTeachers extends FirestoreRecyclerAdapter<Teacher
                 AppCompatActivity activity= (AppCompatActivity)v.getContext();
                 sharedPreferenceSubjectsUser = new SharedPreferenceSubjectsUser(activity);
                 sharedPreferenceSubjectsUser.setDataUserTeacher(emailTeacher);
+                sharedPreferenceSubjectsUser.setGenderTeacher(gender);
                 Intent intent = new Intent(activity,SubjectsActivity.class);
                 activity.startActivity(intent);
                 Toast.makeText(holder.materialCardView_teacher.getContext(), "Toas test", Toast.LENGTH_SHORT).show();

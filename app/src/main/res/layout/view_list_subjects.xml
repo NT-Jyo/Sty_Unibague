@@ -33,6 +33,7 @@
                         android:id="@+id/text_view_subjects_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/primaryVariant"
                         android:fontFamily="@font/roboto_bold"
 
                         android:textSize="24dp" />
@@ -45,31 +46,31 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
                             android:src="@drawable/rate" />
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
                             android:src="@drawable/rate"
                             android:layout_marginLeft="2dp" />
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
                             android:src="@drawable/rate"
                             android:layout_marginLeft="2dp" />
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
                             android:src="@drawable/rate"
                             android:layout_marginLeft="2dp" />
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
                             android:src="@drawable/rate"
                             android:layout_marginLeft="2dp" />
 
@@ -91,6 +92,7 @@
                                 android:layout_gravity="center"
                                 android:layout_width="wrap_content"
                                 android:textSize="20dp"
+                                android:textColor="#DF6A90B5"
                                 android:fontFamily="@font/roboto_bold"
                                 android:layout_height="wrap_content"
                                  />
@@ -183,7 +185,7 @@
                         android:layout_gravity="center"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/like" />
+                        android:src="@drawable/corazon" />
 
                     <TextView
                         android:id="@+id/text_view_likes"

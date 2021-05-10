@@ -29,36 +29,41 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:lottie_autoPlay="true"
-                app:lottie_fileName="gir_meditating.json"
+                app:lottie_fileName="24202_menhera_chan_at_cocopry_sticker_4.json"
                 app:lottie_imageAssetsFolder="assets"
-                app:lottie_loop="true" />
 
+                 />
+            text_view_sentence_user
             <TextView
-                android:id="@+id/text_view_sentence_user"
+                android:id="@+id/text_view_sentence_author"
                 android:textSize="16sp"
                 android:text="veamos frase"
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/primaryVariant"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lottie_animation_data_course">
             </TextView>
 
             <TextView
-                android:id="@+id/text_view_sentence_author"
-                android:layout_marginTop="15dp"
-                android:textSize="16sp"
-                android:text="veamos frase"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
+                android:id="@+id/text_view_sentence_user"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="veamos frase"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_view_sentence_user">
-            </TextView>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_sentence_author"></TextView>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/material_button_data_course"
@@ -66,9 +71,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:text="Continuar"
+                app:rippleColor="@color/primary"
+                app:strokeColor="@color/primaryVariant"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_view_sentence_author"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_sentence_user"
                 >
 
             </com.google.android.material.button.MaterialButton>
