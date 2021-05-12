@@ -2,12 +2,22 @@ package com.trbj.sty.Activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.trbj.sty.R;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 
 public class DataBookPageActivity extends AppCompatActivity {
 
@@ -39,6 +49,7 @@ public class DataBookPageActivity extends AppCompatActivity {
             String resume= info.getString("resume");
             String examples= info.getString("examples");
             String topic= info.getString("topic");
+            String photoURL=info.getString("photoURL");
 
             setTitle(topic);
 
@@ -47,14 +58,16 @@ public class DataBookPageActivity extends AppCompatActivity {
             text_view_keywords_pageB.setText(keyWords);
             text_view_resume_pageB.setText(resume);
             text_view_examples_pageB.setText(examples);
+            System.out.println(photoURL+"laaaaaaa imagen es");
+            Glide.with(DataBookPageActivity.this)
+                    .load(photoURL)
+                    .into(image_view_pageB);
+
 
         }
 
 
     }
-
-
-
 
 
 }

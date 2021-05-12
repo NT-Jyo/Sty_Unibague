@@ -21,6 +21,7 @@ public class NoContentActivity extends AppCompatActivity {
         material_button_no_contentB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 onBackPressed();
             }
         });
